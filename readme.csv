@@ -1,2 +1,2 @@
-data_process.py 数据处理和数据分级
-lfm.py 训练svd
+data_process.py Data Processing and classify the data into 5 groups
+lfm.py Train svd
