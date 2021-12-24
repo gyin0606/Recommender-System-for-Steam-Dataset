@@ -1,29 +1,6 @@
-# -*- coding:utf-8 -*-
-#
-#                     _ooOoo_
-#                    o8888888o
-#                    88" . "88
-#                    (| -_- |)
-#                     O\ = /O
-#                 ____/`---'\____
-#               .   ' \\| |// `.
-#                / \\||| : |||// \
-#              / _||||| -:- |||||- \
-#                | | \\\ - /// | |
-#              | \_| ''\---/'' | |
-#               \ .-\__ `-` ___/-. /
-#            ___`. .' /--.--\ `. . __
-#         ."" '< `.___\_<|>_/___.' >'"".
-#        | | : `- \`.;`\ _ /`;.`/ - ` : | |
-#          \ \ `-. \_ __\ /__ _/ .-` / /
-#  ======`-.____`-.___\_____/___.-`____.-'======
-#                     `=---='
-# 
-#  .............................................
-#           佛祖保佑             永无BUG
-#
+
 """
-使用mse衡量模型好坏
+Use mse as evaluation metric
 """
 import pandas as pd
 import pickle
@@ -39,7 +16,7 @@ class DataProcessing:
         pass
 
     
-    # 对用进行有电影行为和无电影行为的标记
+    # 对用进行有游戏行为和无游戏行为的标记
     def get_pos_neg_item(self, file_path="data/ratings1.csv"):
         if not os.path.exists("data/lfm_items.csv"):
             self.items_dict_path = "data/lfm_items.csv"
@@ -53,7 +30,7 @@ class DataProcessing:
             fw.close()
 
     # 定义单个用户的正负向
-    # 有无电影行为
+    # 有无游戏行为
     def get_one(self, user_id):
         print("为用户%s准备正负向数据。。" % user_id)
         pos_item_ids = set(self.uiscores[self.uiscores["UserID"] == user_id]["itemID"])
